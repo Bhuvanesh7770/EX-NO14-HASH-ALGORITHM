@@ -1,9 +1,9 @@
-# EX-NO:14-HASH-ALGORITHM
+# EX-NO14-HASH-ALGORITHM
 
-## Aim:
-To implement HASH ALGORITHM.
+## AIM:
+To implement HASH ALGORITHM
 
-## Algorithm:
+## ALGORITHM:
 
 1. Hash Algorithm is used to convert input data (message) into a fixed-size string, typically a hash value, which uniquely represents the original data.
 
@@ -27,43 +27,40 @@ To implement HASH ALGORITHM.
 
 
 ## Program:
-```
-#include <stdio.h>
-#include <string.h>
-
-void computeSimpleHash(const char *message, unsigned char *hash) {
-    unsigned char temp = 0;
-    for (int i = 0; message[i] != '\0'; i++) {
-        temp = temp ^ message[i];
-        temp += message[i];
-    }
-    *hash = temp;
-}
-
-int main() {
-    char message[256];
-    unsigned char hash;
-    char receivedHash[3];
-    printf("Enter the message: ");
-    scanf("%255s", message);
-    computeSimpleHash(message, &hash);
-    printf("Computed Hash (in hex): %02x\n", hash);
-    printf("Enter the received hash (in hex): ");
-    scanf("%2s", receivedHash);
-    unsigned int receivedHashValue;
-    sscanf(receivedHash, "%02x", &receivedHashValue);
-    if (hash == receivedHashValue) {
-        printf("Hash verification successful. Message is unchanged.\n");
-    } else {
-        printf("Hash verification failed. Message has been altered.\n");
-    }
-    return 0;
+```c
+#include <stdio.h> 
+#include <string.h> 
+void computeSimpleHash(const char *message, unsigned char *hash) { 
+unsigned char temp = 0; 
+for (int i = 0; message[i] != '\0'; i++) { 
+temp = temp ^ message[i];  
+temp += message[i];        
+} 
+*hash = temp; 
+} 
+int main() { 
+char message[256];      
+unsigned char hash;      
+char receivedHash[3]; 
+printf("Enter the message: "); 
+scanf("%s", message); 
+computeSimpleHash(message, &hash); 
+printf("Computed Hash (in hex): %02x\n", hash); 
+printf("Enter the received hash (in hex): "); 
+scanf("%s", receivedHash); 
+unsigned int receivedHashValue; 
+sscanf(receivedHash, "%02x", &receivedHashValue); 
+if (hash == receivedHashValue) { 
+printf("Hash verification successful. Message is unchanged.\n"); 
+} else { 
+printf("Hash verification failed. Message has been altered.\n"); 
+} 
+return 0; 
 }
 ```
-
 
 ## Output:
-<img width="762" height="332" alt="image" src="https://github.com/user-attachments/assets/1c92fbcf-03eb-46d9-935e-194bb96fe382" />
+<img width="719" height="343" alt="image" src="https://github.com/user-attachments/assets/c2c90d5d-35c6-429d-8b12-dc08b8e39485" />
 
 
 ## Result:
